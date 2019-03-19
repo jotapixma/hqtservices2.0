@@ -1,0 +1,57 @@
+section.services{ background-color: black;
+  .title-panel{
+    .left-side{
+      .title{color: white;}
+    }
+  }
+  .panel-1{min-height:800px; overflow:scroll; 
+    .left-side{background-color:#000; flex-direction:column; 
+      h6{color:white; font-size:40px; letter-spacing:3px;  font-family: 'Staatliches', cursive;}
+      p{color:white; text-align: center;}
+    }
+    .right-side{padding-left:0; 
+      .img{margin-right:-15px; max-height:500px; overflow-y: hidden;
+        img{}
+        // &.crane{
+        //   img{position: relative; bottom: 200px;}
+        // }
+      }
+      .img-1{ 
+        img{min-height:500px;}
+      }
+    }
+    @include media-breakpoint-down(md){
+      .right-side{
+        .img-1 {display: none; }
+        .img-2 {display:block; margin-right: -15px;}
+      }
+    } //close-mediabreakpoint-xs
+    @include media-breakpoint-down(lg){
+      .right-side{
+        .img {
+          img{ min-height: auto; }
+        }
+      }
+    } //close-mediabreakpoint-sm
+    @include media-breakpoint-down(lg){
+      .left-side{
+        h6{font-size: 18px; margin-bottom:0; padding: 15px 0; }
+      }
+    }
+  }
+  .info-panel{background-color:#EA310A; padding:50px; 
+    .item-service{padding-bottom:25px; 
+      .icon-service{width:70px; }
+      h6{color:white; align-self:center; margin:0; font-size:22px; text-align: justify; font-weight: $font-weight-bold; font-family: 'Staatliches', cursive; letter-spacing:1.3px; color:black;   } 
+      p{color:black; font-size:18px;  }
+    }
+    @include media-breakpoint-down(sm){
+
+      .item-service{
+        .icon-service{margin: 0 auto;}
+        text-align: center;
+        h6{text-align: center;}
+      }
+    }
+  }
+} //close-services
