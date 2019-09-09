@@ -1,0 +1,50 @@
+.about-us{border-bottom:1px solid red;
+  
+  section.header-panel{padding-bottom:50px;position:relative;
+    &:before{content:""; position:absolute; left:0; width:20%; height:100%; background-color:red;}
+    .left-side{
+      .panel-hq{background-color:#FFF; padding: 150px 0; display:flex; justify-content:center; align-items:center; border-bottom:3px solid $black; border-right:3px solid #000;   
+        .img{text-align:center; @include transform(scale(1.1)); position:relative; bottom:30px;
+          img{}
+        }
+      }
+    }
+    .right-side{
+      h6{line-height:22px; text-align:justify; margin-bottom: 0; padding:0 10px;  }
+    }
+    @include media-breakpoint-down(md){
+      &:before{
+        display:none;
+      }
+      .left-side{
+        .panel-hq{padding: 10px 0; border: 3px solid black;
+          .img{ @include transform(scale(0.8));}
+        }
+      }
+      .right-side{
+        h6{line-height:22px; text-align:justify; padding: 20px 10px;  }
+      }
+    }
+    @include media-breakpoint-down(sm){ padding-bottom: 15px; 
+      
+      .left-side{
+        .panel-hq{padding: 10px 0; border: 3px solid black;
+          .img{ @include transform(scale(0.6)); bottom: 20px;}
+        }
+      }
+      .right-side{
+        h6{line-height:22px; text-align:justify; padding: 20px 10px; font-size: 14px; }
+      }
+    }
+  }
+  
+  section.info-panel{ padding:50px 20px;  background-color:#000; 
+    // .icon{width:60px; margin:0 auto; min-height: 70px; display:flex; align-items:flex-end; margin-bottom:15px;  }
+    .icon{color:white; font-size:40px; text-align: center; margin-bottom:10px;  }
+    h3{text-align: center; color:#fff; }
+    p{text-align: justify; color:#fff;}
+    ul{
+      li{color:#fff;}
+    }
+  }
+} //close-about-us

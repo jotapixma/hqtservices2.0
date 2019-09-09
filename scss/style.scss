@@ -1,0 +1,235 @@
+// body {
+//   background-color: #fbc547;
+//   color: #333;
+//   font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
+//     "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
+//     "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
+//     "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+//   padding: 18vh 1rem;
+//   text-align: center;
+// }
+
+body{
+  // background-color:black; 
+  overflow-x:hidden;
+  p{font-family: 'Judson', serif; } 
+  h3.title{font-family: 'Staatliches', cursive; letter-spacing:0.6px; margin:0; }
+  li{font-family: 'Judson', serif;}
+  h6{font-size:18px;font-family: 'Judson', serif;}
+  h5{font-family: 'Staatliches', cursive; font-size: 20px;  }
+}
+
+@import './common/custom-mixins';
+@import './bootstrap/bootstrap-grid';
+@import './common/home';
+@import './common/about';
+@import './common/services';
+@import './common/partners-slider';
+
+@font-face {
+font-family: 'Gibson';
+src: url(Gibson-Regular.ttf);
+}
+$red:#EE260B;
+
+h3{text-transform: uppercase; text-align: center; padding-bottom: 15px;}
+
+// //componentes genericos
+
+.title-panel{padding-bottom:40px; position:relative; 
+  .left-side{display:flex; justify-content:center; align-items:flex-end;
+    h3{margin:0;}
+  }
+  .right-side{border-bottom:3px solid #000; padding-bottom: 80px; 
+    .bg-icon{position: absolute; width:150px; height:100%; background-color:red; bottom:0; right:0; 
+      .icon{width:70px; margin:0 auto;  }
+    }
+  }
+} //close-title-panel
+
+section.header{width:100%;
+  background:url(('/assets/images/background-nav.png'))center center no-repeat; height:170px; background-size: cover; position:relative;
+  .container-fluid{position: relative; z-index: 10;
+    &:before{content:"";position: absolute; top:-42px; left:-61px; background:url(('/assets/images/2.png')) no-repeat; width:405px; height:273px; @include scale(0.8);}
+    &:after{content:"";position: absolute; top:0; right:0; background:url(('/assets/images/3.png')) no-repeat; width:570px; height:170px;}
+    .img{
+      img{width:150px; }
+    }
+    h5{position: absolute; text-transform: uppercase; right:90px; color:#fff; z-index:20; top:50%; @include transform(translateY(-50%)); font-size:24px; font-family: 'Staatliches', cursive; letter-spacing:1px; }
+  } //close-container-fluid
+  @include media-breakpoint-down(lg){
+    .container-fluid{
+      
+      &:after{display:none;}
+      .img{
+        img{width:130px;}
+      }
+      h5{top:inherit; font-size:20px; margin-bottom:0; top:inherit; bottom:0; color:$black; left:50%; @include transform(translateX(-50%)); right:0; width:100%; text-align:center; position:relative;   }
+    }  
+  }//close-sm-breakpoint
+  @include media-breakpoint-down(md){
+    .container-fluid{
+      &:before{@include scale(0.8); top:-45px; left:-70px;}
+      &:after{display:none;}
+      .img{
+        img{width:130px;}
+      }
+    }  
+  }//close-sm-breakpoint
+  @include media-breakpoint-down(sm){
+    .container-fluid{
+      &:before{@include scale(0.4); top:-82px; left:-122px;}
+      &:after{display:none;}
+      .img{
+        img{width:130px;}
+      }
+      h5{top:inherit; font-size:20px; margin-bottom:0; top:inherit; bottom:0; color:$black; left:50%; @include transform(translateX(-50%)); right:0; width:100%; text-align:center; position:relative;   }
+    }  
+  }//close-sm-breakpoint
+} //close-header 
+
+.bg-custom{background-color:#000; justify-content:flex-end !important; outline:none;
+  .custom-toggler{outline:none;
+    span{
+      &.navbar-toggler-icon{background-image: url(("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")); outline:none; border:0;}
+    }
+  }
+  .navbar-collapse{
+    .navbar-nav{
+      li{
+        a.nav-link{color:#fff; text-transform:uppercase; font-family: 'Staatliches', cursive; font-size: 20px; letter-spacing:1px;
+          &:hover{color:#CF220B;}
+        }
+      }
+    }//close-navbar
+  
+  }//close-navbar-collapse
+}//close-bg-custom
+
+
+section.gallery{border-bottom:1px solid red; 
+  
+  // Slick Slider
+  // Arrows
+  $arrow-height: 17px;
+  $arrow-width: 10px;
+  .slick-arrow{
+    height:38px; 
+    width:38px; 
+    border-radius:38px; box-shadow: 0 0 11px 0 black; background-image:none; 
+    text-indent:10000px;
+    background-color: white;
+    display:block;
+    overflow:hidden;
+    position:absolute; 
+    top:50%; @include transform(translateY(-50%)); border:0;z-index:20; cursor:pointer; outline:none;
+    &:before{content:""; position: absolute; background:url(('/assets/images/ic_arrow-slider.svg')) no-repeat 0 0; width: $arrow-width; height: $arrow-height; z-index: 200;  background-position-y:-17px; top: 50%; @include transform(translateY(-50%)); left:15px;  }
+
+    // &:hover{}
+    &.slick-prev{left:-50px;
+      &:before { @include transform(scaleX(-1) translateY(-50%));}
+    }
+    &.slick-next{right:-50px;}
+    
+    @include media-breakpoint-down(md) {
+      &.slick-prev{left: -40px;}
+      &.slick-next{right: -40px;}
+    }
+    @include media-breakpoint-down(sm) {
+      &.slick-prev{left: 0;}
+      &.slick-next{right: 0;}
+    }
+  }
+
+  .hq-carousel{padding:40px 0; 
+    .gallery-slider{ display: none;
+
+      &.slick-slider{display:block; 
+        .slick-track{padding: 20px 0; display: flex; align-items: center;
+          .slick-slide{height: auto;}
+        }
+
+        .carousel-item{
+          .img{max-height: 300px; overflow: hidden; margin: 0 5px;
+            // img{min-height: 180px;}
+          }
+        }
+
+        @include media-breakpoint-down(xs){
+          .carousel-item{
+            .img{ max-height: 100px; 
+            }
+          }
+        }
+
+      }//close-slick-slider
+
+    } //close-gallery-slider
+
+    
+  }
+
+
+  .gallery-bg-white{background-color:white; padding:50px 0;  }
+  .gallery-bg-black{background-color:black; padding:50px 0; 
+    .circle{width:300px; height:300px;  border-radius:300px; border:8px solid white; margin:0 auto; margin-bottom:40px; overflow:hidden; background-size:auto 100%;   
+      img{ }
+    }
+    @include media-breakpoint-down(md){
+      .circle{width: 210px; height:210px; border-radius:210px; border:3px solid white;   }
+    }
+    @include media-breakpoint-down(sm){
+      .circle{width: 160px; height:160px; border-radius:160px; border:3px solid white;   }
+    }
+    @include media-breakpoint-down(xs){
+      .circle{width: 120px; height:120px; border-radius:120px; border:3px solid white;   }
+    }
+    
+  } //gallery-bg-white
+} //close-gallery
+
+section.footer{position: relative;
+  a{text-decoration:none; }
+  .social{height:35px; background-color: #000; padding-right:50px;  
+    .icon{padding-left:6px; display: none;
+      img{width:25px;}
+    }
+  }
+  .contact-footer-info{background:url(('/assets/images/background-nav.png')) no-repeat; width:auto;  height:auto; background-size:cover; background-position: bottom; padding:50px 0; width:100%; 
+    .icon{text-align: center; 
+      max-width:80px; min-width:80px;  
+    }
+    a{
+      .icon{}
+      h6{padding-top:10px; text-align:center;}
+    }
+    .info-footer{text-align: center;
+      p{font-size:15px; margin:0;  }
+    } //close-info-footer
+  } //close-contact-footer-info
+} //close-footer
+
+section.contact{background:url(('/assets/images/Grove-crane-telescopic-GMK6400.jpg')) no-repeat center center; background-size:cover; position:relative; z-index:20;  
+  &:before{content:"";position:absolute; top:0; bottom:0; left:0; right:0; background-color:rgba(0, 0, 0, 0.2);}
+  .title-panel{background-color:rgba(250, 247, 246, 0.3); padding-bottom:0; }
+  .info-contact{padding:200px 0; 
+    .box-contact{@include box-shadow(0 0 15px 0 rgba(176, 176, 176, 0.5)); height:200px; padding-left:40px; display:flex; justify-content:center; flex-direction:column; background-color:rgba(250, 247, 246,0.9); z-index:100; position:relative; 
+      h6{font-weight:bold; 
+        span{font-weight:400; text-transform:capitalize; }
+        a{font-weight:400; color:black;
+          &:hover{color:blue;}
+        }
+      }
+    }
+  }
+}//close-contact
+
+a {
+  color: rgba(#000, 0.7);
+
+  &:focus,
+  &:hover {
+    color: rgba(#000, 0.6);
+  }
+}
+
